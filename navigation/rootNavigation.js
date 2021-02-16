@@ -14,6 +14,7 @@ const rootNavigation = (props) => {
   const TabNav = createBottomTabNavigator();
 
   console.log(props);
+
   const HeaderRight = (prop) => {
     console.log("   Header Prop  " + prop);
     return (
@@ -92,7 +93,7 @@ const rootNavigation = (props) => {
           style={style.logoImage}
           source={require("../assets/logo_1.png")}
         />
-        <Text style={{ fontSize: 24, color: "black", alignSelf: "center" }}>
+        <Text style={{ fontSize: 24, color: "black", alignSelf: "center",fontFamily:"Caveat"}}>
           {" "}
           Game App{" "}
         </Text>
@@ -110,19 +111,20 @@ const rootNavigation = (props) => {
           headerTitle: () => {
             return <HeaderTitle />;
           },
-          gestureEnabled: false,
+         
         }}
       >
         <GameStack.Screen
           name="startGame"
           component={StartGame}
-          options={({ openDrawer }) => ({
+          options={() => ({
             // headerTitle: () => {
             //   return <HeaderTitle />;
             // },
             // headerLeft: () => {
             //   return <HeaderLeft drawer= {openDrawer}/>;
             // },
+            
             headerRight: () => {
               return <HeaderRight />;
             },
@@ -135,7 +137,6 @@ const rootNavigation = (props) => {
           component={PlayGame}
         />
         <GameStack.Screen name="endGame" component={EndGame} />
-        
       </GameStack.Navigator>
     );
   };
@@ -146,6 +147,7 @@ const rootNavigation = (props) => {
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Account" component={EndGame} />
       </Drawer.Navigator>
+      
 
       {/* uncomment to see bottom tab navigation */}
       {/* <BottomTab/> */}
