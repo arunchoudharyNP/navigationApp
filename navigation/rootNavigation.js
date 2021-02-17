@@ -88,7 +88,7 @@ const rootNavigation = (props) => {
 
   const HeaderTitle = () => {
     return (
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row" , alignSelf:"center"}}>
         <Image
           style={style.logoImage}
           source={require("../assets/logo_1.png")}
