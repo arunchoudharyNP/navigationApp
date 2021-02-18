@@ -2,10 +2,13 @@ import React from "react";
 
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 
+
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
 const ButtonCom = (props) => {
+
+ 
   const {
     color,
     margin,

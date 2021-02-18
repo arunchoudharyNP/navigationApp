@@ -4,7 +4,12 @@ import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { PlayGame, EndGame, StartGame } from "../screens/Index";
+import {
+  PlayGame,
+  EndGame,
+  StartGame,
+  EditProfileScreen,
+} from "../screens/Index";
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -88,12 +93,19 @@ const rootNavigation = (props) => {
 
   const HeaderTitle = () => {
     return (
-      <View style={{ flexDirection: "row" , alignSelf:"center"}}>
+      <View style={{ flexDirection: "row", alignSelf: "center" }}>
         <Image
           style={style.logoImage}
           source={require("../assets/logo_1.png")}
         />
-        <Text style={{ fontSize: 24, color: "black", alignSelf: "center",fontFamily:"Caveat"}}>
+        <Text
+          style={{
+            fontSize: 24,
+            color: "black",
+            alignSelf: "center",
+            fontFamily: "Caveat",
+          }}
+        >
           {" "}
           Game App{" "}
         </Text>
@@ -111,7 +123,6 @@ const rootNavigation = (props) => {
           headerTitle: () => {
             return <HeaderTitle />;
           },
-         
         }}
       >
         <GameStack.Screen
@@ -124,7 +135,7 @@ const rootNavigation = (props) => {
             // headerLeft: () => {
             //   return <HeaderLeft drawer= {openDrawer}/>;
             // },
-            
+
             headerRight: () => {
               return <HeaderRight />;
             },
@@ -135,6 +146,12 @@ const rootNavigation = (props) => {
           options={{ gestureEnabled: false }}
           name="playGame"
           component={PlayGame}
+        />
+
+        <GameStack.Screen
+         
+          name="editProfile"
+          component={EditProfileScreen}
         />
         <GameStack.Screen name="endGame" component={EndGame} />
       </GameStack.Navigator>
@@ -147,7 +164,6 @@ const rootNavigation = (props) => {
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Account" component={EndGame} />
       </Drawer.Navigator>
-      
 
       {/* uncomment to see bottom tab navigation */}
       {/* <BottomTab/> */}

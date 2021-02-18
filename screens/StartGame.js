@@ -52,10 +52,16 @@ const StartGame = (props) => {
       ? dimensions.window.width / 2
       : dimensions.window.width / 2;
 
-
-  let containerPadding = dimensions.window.width >400 ? dimensions.window.width/5: 0;   
+  let containerPadding =
+    dimensions.window.width > 400 ? dimensions.window.width / 5 : 0;
   return (
-    <View  style={{marginHorizontal:containerPadding,backgroundColor:"white",flex:1} } >
+    <View
+      style={{
+        marginHorizontal: containerPadding,
+        backgroundColor: "white",
+        flex: 1,
+      }}
+    >
       <View
         style={{
           width: textWidth,
@@ -80,15 +86,37 @@ const StartGame = (props) => {
             Platform.OS == "web"
               ? dimensions.window.width / 3
               : dimensions.window.width,
-              alignSelf:"center"
+          alignSelf: "center",
         }}
       >
-        <Button
-          title="Go to Play Game"
+        <ButtonCom
+          margin={20}
+          round
+          padding={15}
           onPress={() => {
             props.navigation.navigate("playGame", { title: "round 1" });
           }}
-        />
+        >
+          <Text style={{ color: "white", fontSize: 24, fontFamily: "Caveat" }}>
+            Play Game
+          </Text>
+        </ButtonCom>
+
+
+        <ButtonCom 
+          margin={20}
+           round
+           padding={15}
+           onPress={() => {
+            props.navigation.navigate("editProfile");
+          }}
+        >
+          <Text  style={{color:"white" , fontSize:24  ,fontFamily:"Caveat" }}>
+            Edit Profile
+          </Text>
+
+        </ButtonCom>
+
       </View>
     </View>
   );

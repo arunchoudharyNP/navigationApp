@@ -31,6 +31,7 @@ export default function App() {
     const imageAssets = cacheImages([
       require("./assets/splash.png"),
       require("./assets/icon.png"),
+      require("./assets/Background_img.jpg")
     ]);
 
     const fontAssets = cacheFonts([
