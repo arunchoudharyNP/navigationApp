@@ -6,10 +6,26 @@ import {
   ImageBackground,
   StyleSheet,
 } from "react-native";
+import ButtonCom from "../Components/helpingComponents/ButtonCom";
 import InputCom from "../Components/helpingComponents/InputCom";
+import { useDispatch } from "react-redux";
+import  * as UserActions    from "../Store/Actions/UserActions";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const EditProfileScreen = (props) => {
   let platformWeb = Platform.OS == "web";
+    
+  const dispatch = useDispatch();
+
+
+  const SubmitHandler =()=>{
+
+    console.log("Pressed");
+    dispatch(UserActions.saveDetails("XYZ","PQR", "Qwerty"))
+
+
+
+  }
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
       <ImageBackground
@@ -100,6 +116,15 @@ const EditProfileScreen = (props) => {
               border
             />
           </View>
+
+        
+
+          <ButtonCom title="Submit" color="blue" round   center padding={10}  onPress={()=>{SubmitHandler()}} >
+
+            <Text>
+              Submit
+            </Text>
+          </ButtonCom>
         </View>
       </ImageBackground>
     </View>

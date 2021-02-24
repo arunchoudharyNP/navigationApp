@@ -4,6 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
+import { Provider } from "react-redux";
+import { createStore , combineReducers } from "redux";
+import UsersReducer from "./Store/Reducers/UsersReducer";
 
 import RootNavigation from "./navigation/rootNavigation";
 
@@ -19,6 +22,15 @@ export default function App() {
       }
     });
   }
+  
+   const reducers = combineReducers({
+    User: UsersReducer,
+   
+
+   })
+
+
+  const store = createStore(reducers)
 
   function cacheFonts(fonts) {
     return fonts.map((font) => Font.loadAsync(font));
@@ -52,9 +64,11 @@ export default function App() {
   }
 
   return (
+    <Provider store={store} >
     <RootNavigation>
       <StatusBar style="dark" />
     </RootNavigation>
+    </Provider>
   );
 }
 
