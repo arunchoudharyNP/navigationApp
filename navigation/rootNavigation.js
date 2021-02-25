@@ -12,6 +12,7 @@ import {
 } from "../screens/Index";
 import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import CustomDrawerComponent from "../Components/CustomDrawerComponent";
 
 const rootNavigation = (props) => {
   const GameStack = createStackNavigator();
@@ -148,11 +149,7 @@ const rootNavigation = (props) => {
           component={PlayGame}
         />
 
-        <GameStack.Screen
-         
-          name="editProfile"
-          component={EditProfileScreen}
-        />
+        <GameStack.Screen name="editProfile" component={EditProfileScreen} />
         <GameStack.Screen name="endGame" component={EndGame} />
       </GameStack.Navigator>
     );
@@ -160,7 +157,12 @@ const rootNavigation = (props) => {
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator
+        initialRouteName="Home"
+        drawerContent={(props) => {
+        return  <CustomDrawerComponent name="Arun" picture={"https://mk0promonab8cata9oku.kinstacdn.com/wp-content/uploads/2020/02/gaming-apps-security-protection2.png"} {...props} />;
+        }}
+      >
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Account" component={EndGame} />
       </Drawer.Navigator>

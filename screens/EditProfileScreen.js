@@ -16,12 +16,13 @@ const EditProfileScreen = (props) => {
   let platformWeb = Platform.OS == "web";
     
   const dispatch = useDispatch();
-
+  
+  
 
   const SubmitHandler =()=>{
 
     console.log("Pressed");
-    dispatch(UserActions.saveDetails("XYZ","PQR", "Qwerty"))
+    dispatch(UserActions.saveDetails("Arun","Choudhary", "Qwerty1"))
 
 
 
